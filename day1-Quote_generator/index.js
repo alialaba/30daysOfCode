@@ -23,16 +23,14 @@ const quotes=[
    
 
 
-const quoteBtn = document.querySelector(".quote__newbtn");
+      
 const quoteText = document.querySelector(".quote__text");
-const quoteAuthor = document.querySelector(".quote__name");
-
+const quoteAuthor = document.querySelector(".quote__author");
+const quoteBtn = document.querySelector(".quote__newbtn");
 
 quoteBtn.addEventListener("click", ()=>{
-    const randomIndex = Math.floor(Math.random() * quotes.length);
 
-    quoteText.textContent = quotes[randomIndex].quote;
-    quoteAuthor.textContent = quotes[randomIndex].author;
+    const randomIndex =  Math.floor(Math.random() * quotes.length);
+    quoteText.innerText = quotes[randomIndex].quote;
+    quoteAuthor.innerText = quotes[randomIndex].author;
 })
-
-
