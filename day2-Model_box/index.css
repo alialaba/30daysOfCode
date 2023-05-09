@@ -1,6 +1,12 @@
 ::before, ::after{
     box-sizing: border-box;
 }
+:root{
+    --clr-text:#cee3e9;
+    --clr-neon-green:hsl(150, 100%, 66%);
+    --clr-grayish-blue:hsl(217, 19%, 38%);
+    --clr-dk-grayish-blue:hsl(218, 23%, 16%);
+}
 
 body{
     padding: 0;
@@ -12,6 +18,7 @@ font-family: 'Karla',
 sans-serif;
 position: relative;
 height: 100vh;
+background-color: var(--clr-dk-grayish-blue);
 }
 img{
     max-width: 50%;
@@ -68,4 +75,19 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#open__btn{
+    border: none;
+    padding: 1em 2em;
+    border-radius: 6px;
+    position: absolute;
+    left: 100px;
+    top: 70%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: .3s;
+    font-size: 1.1rem;
+}
+#open__btn:hover{
+background-color: var(--clr-neon-green) ;
 }
