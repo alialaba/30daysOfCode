@@ -7,3 +7,6 @@ for(let i = 0; i < accordionItem.length; i++){
         this.classList.toggle("active")
     })
 }
+
+
+/*forLoop getElementsByClassName, class.toggle(), this */
