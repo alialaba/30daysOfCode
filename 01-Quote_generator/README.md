@@ -1,6 +1,8 @@
-## Key Concept for the Project
-- QuerySelector
-- EventListener
-- Math Object    {Math.floor() && Math.random()}
-- InnerText
+## Functionality
+- Generate randome quotes onClick
 
+### Lesson learnt/ Key Concept 
+- Eventlistener, QuerySelector
+- Math Object    {Math.floor() && Math.random()}
+### Extra Steps
+- arrOfObj[index].key 
