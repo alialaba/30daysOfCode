@@ -1,6 +1,7 @@
 ## Functionality
 - Hour, minute and second Hand should rotate with time accurately
 
+
 ### Lesson learnt
 - transition , transition-timing-function
 - tranform , transform-origin default(is 50%)
