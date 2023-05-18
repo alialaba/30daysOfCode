@@ -1,5 +1,3 @@
-
-
 ## Functionality
 -Update inputs changes for spacing, blur and color. 
 
