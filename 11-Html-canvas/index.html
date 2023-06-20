@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+
+  <style>
+    html, body {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<button id="eraser">Eraser</button>
+<button id="pen">Pen</button>
+<script>
+    const canvas = document.getElementById("draw");
+    let mode = true
+    const eraser = document.getElementById("eraser");
+
+    const pen = document.getElementById("pen")
+
+    const ctx = canvas.getContext("2d");
+
+    //resize height and width to window size;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+
+    ctx.strokeStyle = "#BADASS";
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    // ctx.lineWidth = 10;
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let hue = 0;
+
+    let direction = true;
+
+    function draw(e){
+        if(!isDrawing) return // stop fn from running when not moused down
+        console.log(e);
+
+        //colorfulstroke
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+
+        ctx.beginPath();
+        //start from
+        ctx.moveTo(lastX, lastY);
+        //goes to
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+        //increment colorful
+        hue++
+        if(hue === 360){
+          hue = 0;
+        }
+
+        if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
+          direction = !direction;
+        }
+
+        if(direction){
+          ctx.lineWidth++
+        }else{
+          ctx.lineWidth--
+        }
+    }
+
+
+    function clean (){
+      if(mode){
+        ctx.globalCompositeOperation="destination-out";
+      ctx.arc(lastX,lastY,8,0,Math.PI*2,false);
+      ctx.fill();
+        }
+    }
+
+
+pen.addEventListener("click", ()=>{
+  mode = !mode
+  draw
+})    
+    eraser.addEventListener("click", clean)
+    canvas.addEventListener("mousemove", draw);
+
+    canvas.addEventListener("mousedown", (e)=>{
+      isDrawing = true;
+      //allow to control drawing instead of starting from 0
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+    canvas.addEventListener("mouseup", ()=> isDrawing = false);
+    canvas.addEventListener("mouseout", ()=> isDrawing = false);
+    
+
+</script>
+
+</body>
+</html>
